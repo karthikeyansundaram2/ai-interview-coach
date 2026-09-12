@@ -17,4 +17,4 @@ services:
       - key: GROQ_MODEL
         value: openai/gpt-oss-120b
       - key: CORS_ORIGINS
-        value: https://ai-interview-coach.vercel.app,http://localhost:3000
+        value: https://ai-interview-coach-drab-one.vercel.app,http://localhost:3000

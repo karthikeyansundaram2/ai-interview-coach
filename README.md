@@ -72,7 +72,7 @@ backend URL from `NEXT_PUBLIC_API_URL`, and CORS allows `CORS_ORIGINS` plus any 
 | Start Command | `uvicorn main:app --host 0.0.0.0 --port $PORT` |
 | Health Check Path | `/health` |
 | Env: `GROQ_API_KEY` | your key (dashboard only — never in the repo) |
-| Env: `CORS_ORIGINS` | `https://<your-app>.vercel.app,http://localhost:3000` |
+| Env: `CORS_ORIGINS` | `https://ai-interview-coach-drab-one.vercel.app,http://localhost:3000` |
 
 **Vercel (frontend)** — *Add New → Project → import the repo*:
 
