@@ -1,0 +1,14 @@
+#!/bin/sh
+# Refuse to commit env files or anything that looks like a Groq API key.
+set -e
+blocked=$(git diff --cached --name-only --diff-filter=ACM | grep -E '(^|/)\.env(\..*)?$' | grep -vE '\.example$' || true)
+if [ -n "$blocked" ]; then
+  echo "✖ Refusing to commit env file(s):"; echo "$blocked" | sed 's/^/    /'
+  echo "  Real env files must stay local. Commit a .env.example instead."
+  exit 1
+fi
+if git diff --cached -U0 | grep -E '^\+' | grep -qE 'gsk_[A-Za-z0-9]{20,}'; then
+  echo "✖ Refusing to commit: a Groq API key (gsk_...) is in the staged changes."
+  echo "  Move it to backend/.env (git-ignored) and reference it via GROQ_API_KEY."
+  exit 1
+fi
