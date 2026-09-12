@@ -1,5 +1,7 @@
 # AI Interview Coach
 
+**Live:** https://ai-interview-coach-drab-one.vercel.app · API: https://ai-interview-coach-6lc9.onrender.com/health
+
 A live mock technical interview. Pick a topic and level — or upload your resume and choose the round —
 and an AI interviewer asks one question at a time (including coding problems you answer in a code editor),
 decides when the interview is over, and gives you a scored Pass / Fail report with preparation tips.
@@ -80,7 +82,7 @@ backend URL from `NEXT_PUBLIC_API_URL`, and CORS allows `CORS_ORIGINS` plus any 
 | --- | --- |
 | Root Directory | `frontend` |
 | Framework | Next.js (auto-detected) |
-| Env: `NEXT_PUBLIC_API_URL` | the Render URL, no trailing slash (e.g. `https://ai-interview-coach-backend.onrender.com`) |
+| Env: `NEXT_PUBLIC_API_URL` | the Render URL, no trailing slash (e.g. `https://ai-interview-coach-6lc9.onrender.com`) |
 
 Render's free tier sleeps after 15 min idle — the first request takes 30–60 s; the setup screen tells the user so.
 
