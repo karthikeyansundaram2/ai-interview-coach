@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter_Tight, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { SITE_NAME } from "@/lib/site";
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
@@ -23,9 +24,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: { default: "AI Interview Coach", template: "%s · AI Interview Coach" },
+  title: { default: `${SITE_NAME} — DSA patterns, system design, AI & mock interviews`, template: `%s · ${SITE_NAME}` },
   description:
-    "A live mock technical interview. One question at a time, tailored to your resume, ending in a scored Pass or Fail report.",
+    "Learn DSA by pattern with step-through visualizers, low-level and system design, AI engineering, and practise with an AI mock interviewer.",
 };
 
 export const viewport: Viewport = {

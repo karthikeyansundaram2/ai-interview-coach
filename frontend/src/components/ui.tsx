@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import type { Difficulty, Round } from "@/lib/types";
 import { IconAlert } from "@/components/icons";
+import { SITE_NAME } from "@/lib/site";
 
 export function Spinner({ className = "" }: { className?: string }) {
   return (
@@ -96,11 +97,11 @@ export function Wordmark({ href = "/", compact = false }: { href?: string; compa
   return (
     <Link
       href={href}
-      aria-label="AI Interview Coach — home"
+      aria-label={`${SITE_NAME} — home`}
       className="eyebrow inline-flex min-h-11 items-center gap-2 whitespace-nowrap text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
     >
       <span className="inline-block size-2 bg-accent" aria-hidden="true" />
-      <span className={compact ? "hidden sm:inline" : undefined}>AI Interview Coach</span>
+      <span className={compact ? "hidden sm:inline" : undefined}>{SITE_NAME}</span>
     </Link>
   );
 }

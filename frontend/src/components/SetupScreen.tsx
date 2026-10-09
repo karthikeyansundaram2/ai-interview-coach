@@ -33,6 +33,19 @@ export function SetupScreen({ onStart }: { onStart: (session: InterviewSession) 
   const [slow, setSlow] = useState(false); // free-tier backends sleep; the first request can take ~1 min
   const [error, setError] = useState<string | null>(null);
 
+  // Prefill from links elsewhere on the site, e.g. /interview?topic=Sliding%20Window&difficulty=Medium&round=Technical
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    const t = q.get("topic");
+    const d = q.get("difficulty") as Difficulty | null;
+    const r = q.get("round") as Round | null;
+    /* eslint-disable react-hooks/set-state-in-effect -- one-time read of the URL after hydration */
+    if (t) setTopic(t.slice(0, 120));
+    if (d && DIFFICULTIES.includes(d)) setDifficulty(d);
+    if (r && ROUNDS.includes(r)) setRound(r);
+    /* eslint-enable react-hooks/set-state-in-effect */
+  }, []);
+
   useEffect(() => {
     if (!loading) return;
     const t = setTimeout(() => setSlow(true), 6000);
