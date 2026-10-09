@@ -1,0 +1,35 @@
+name: New content
+description: Propose a lesson, practice problem, DSA pattern or visualizer.
+labels: ["content", "enhancement"]
+body:
+  - type: dropdown
+    id: track
+    attributes:
+      label: Track
+      options: [DSA pattern, DSA problem, LLD lesson, LLD problem, System design lesson, System design problem, AI lesson, AI project, Interview prep]
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      placeholder: e.g. Trie pattern, Bloom filters, Design a parking garage
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it worth adding?
+      description: Is it commonly asked? What gap does it fill?
+    validations:
+      required: true
+  - type: textarea
+    id: outline
+    attributes:
+      label: Rough outline
+  - type: checkboxes
+    id: pr
+    attributes:
+      label: Want to write it?
+      options:
+        - label: I'd like to write this and open a PR

@@ -1,15 +1,45 @@
-# AI Interview Coach
+# Patternwise
 
-**Live:** https://ai-interview-coach-drab-one.vercel.app · API: https://ai-interview-coach-6lc9.onrender.com/health
+**Learn DSA by pattern, low-level design, system design and AI engineering — then defend it in an AI mock interview.**
 
-A live mock technical interview. Pick a topic and level — or upload your resume and choose the round —
-and an AI interviewer asks one question at a time (including coding problems you answer in a code editor),
-decides when the interview is over, and gives you a scored Pass / Fail report with preparation tips.
+Free and open source. **Live:** https://ai-interview-coach-drab-one.vercel.app
+
+[![CI](https://github.com/karthikeyansundaram2/ai-interview-coach/actions/workflows/ci.yml/badge.svg)](https://github.com/karthikeyansundaram2/ai-interview-coach/actions/workflows/ci.yml)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT.md)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+| Track | What's inside |
+| --- | --- |
+| **DSA** | 18 patterns (two pointers → 2-D DP), each with a plain-English analogy, an interactive step-through visualizer, common mistakes and an easy → hard LeetCode ladder. 140+ problems in a filterable bank. |
+| **Low-level design** | Principles → patterns → architecture, plus classic machine-coding problems with hidden reference solutions. |
+| **System design** | Foundations → core → production → advanced, plus full design walkthroughs (URL shortener, chat, feeds, payments…). |
+| **AI engineering** | ML basics → transformers → RAG, agents, MCP, LangGraph → evals, guardrails and serving, plus build projects. |
+| **Interview prep** | An 8-week plan, a playbook per round, coding and behavioural frameworks. |
+| **Mock interview** | An AI interviewer that asks one question at a time, probes your gaps and grades you out of 100. |
+
+Progress is saved in your browser — no account needed.
+
+## Contributing
+
+Most contributions are content — a clearer explanation, a new lesson, a better problem — and need no React
+knowledge. Fork, edit a Markdown file, open a PR. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and issues labelled
+**good first issue**.
 
 ```
 frontend/   Next.js 16 (App Router, TypeScript, Tailwind v4)   -> http://localhost:3000
-backend/    Python 3.12 FastAPI + Groq                          -> http://localhost:8000
+  src/content/      lessons & problems (Markdown + curriculum.ts)  <- most contributions go here
+  src/lib/dsa/viz/  step-through visualizers
+backend/    Python 3.12 FastAPI + Groq (mock interviewer)       -> http://localhost:8000
 ```
+
+Content-only work needs just the frontend: `cd frontend && npm install && npm run dev`.
+
+## About the mock interviewer
+
+Pick a topic and level — or upload your resume and choose the round — and an AI interviewer asks one question at a
+time (including coding problems you answer in a code editor), decides when the interview is over, and gives you a
+scored Pass / Fail report with preparation tips. API: https://ai-interview-coach-6lc9.onrender.com/health
 
 ## Setup
 
@@ -121,7 +151,7 @@ driven by the resume. Code answers are sent as fenced ```` ``` ```` blocks. Ever
 
 ## Frontend notes
 
-- `/` is the homepage; `/interview` is the app (`src/components/InterviewApp.tsx` switches between setup, interview
+- `/` is the homepage; `/dsa`, `/lld`, `/hld`, `/ai`, `/prep` are the learning tracks; `/interview` is the app (`src/components/InterviewApp.tsx` switches between setup, interview
   and report). The in-progress interview is kept in `sessionStorage` so a refresh doesn't lose it.
 - Design system (from the `ui-ux-pro-max` skill, "Bold Typography / Editorial"): near-black ground, one vermilion
   accent for actions, Inter Tight headlines, JetBrains Mono labels, Playfair italic for the interviewer's voice,
@@ -129,3 +159,7 @@ driven by the resume. Code answers are sent as fenced ```` ``` ```` blocks. Ever
 - Composer: **Text** mode — Enter sends, Shift+Enter newline. **Code** mode (for DSA questions) — monospace,
   Tab indents, Enter newline, ⌘/Ctrl+Enter sends; the answer is sent as a fenced code block.
 - "End" in the interview header asks for a second click, then grades what you've answered so far.
+
+## Licence
+
+Code: [MIT](LICENSE). Learning content in `frontend/src/content/`: [CC BY 4.0](LICENSE-CONTENT.md).

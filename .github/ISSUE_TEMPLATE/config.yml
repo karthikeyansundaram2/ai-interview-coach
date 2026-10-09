@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions & ideas
+    url: https://github.com/karthikeyansundaram2/ai-interview-coach/discussions
+    about: Ask a question or float an idea before opening an issue.
